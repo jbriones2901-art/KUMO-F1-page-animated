@@ -49,11 +49,11 @@ export default function KumoPage() {
         {[
           {
             name: "Charles Leclerc",
-            img: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Charles_Leclerc_2022.jpg",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Charles_Leclerc_2022.jpg/400px-Charles_Leclerc_2022.jpg",
           },
           {
             name: "Lewis Hamilton",
-            img: "https://upload.wikimedia.org/wikipedia/commons/1/19/Lewis_Hamilton_2021.jpg",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Lewis_Hamilton_2021.jpg/400px-Lewis_Hamilton_2021.jpg",
           },
         ].map((pilot, index) => (
           <motion.div
@@ -77,4 +77,3 @@ export default function KumoPage() {
     </div>
   );
 }
-
