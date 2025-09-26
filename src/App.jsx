@@ -1,57 +1,36 @@
-import { motion } from "framer-motion";
-
-export default function KumoPage() {
-  const frases = [
-    "你是我生命中的光。",
-    "与你相遇是我最大的幸运。",
-    "你的笑容比阳光还温暖。",
-    "星星再亮，也不及你眼中的光彩。",
-    "世间美好与你环环相扣。",
-  ];
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-red-100 to-yellow-100 flex flex-col items-center justify-center p-6">
-      {/* Título */}
-      <motion.h1
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl font-bold text-pink-600 mb-10 text-center"
-      >
-        致Kumo ❤️
-      </motion.h1>
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
+      <h1 className="text-4xl font-bold mb-8">致Kumo的真挚话语</h1>
 
-      {/* Frases */}
-      <div className="space-y-6 text-center">
-        {frases.map((frase, index) => (
-          <motion.p
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.4 }}
-            className="text-2xl text-gray-800 font-medium"
-          >
-            {frase}
-          </motion.p>
-        ))}
+      {/* Frases emotivas en chino */}
+      <div className="mb-12 text-center">
+        <p className="text-xl mb-2">你的微笑比阳光还要温暖。</p>
+        <p className="text-xl mb-2">认识你是我生命中最美丽的意外。</p>
+        <p className="text-xl mb-2">愿你的人生充满光明与幸福。</p>
+        <p className="text-xl">你是独一无二的存在。</p>
       </div>
 
-      {/* Fotos de los pilotos */}
-      <div className="grid grid-cols-2 gap-8 mt-12">
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <img
-            src="/img/hamilton.jpg"
-            alt="Lewis Hamilton"
-            className="rounded-2xl shadow-lg w-full"
-          />
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <img
-            src="/img/leclerc.jpg"
-            alt="Charles Leclerc"
-            className="rounded-2xl shadow-lg w-full"
-          />
-        </motion.div>
+      {/* Hamilton */}
+      <div className="mb-12 text-center">
+        <img
+          src="/hamilton.jpg"
+          alt="Lewis Hamilton"
+          className="w-60 mx-auto rounded-2xl shadow-lg mb-4"
+        />
+        <p className="text-2xl">刘易斯·汉密尔顿</p>
+        <p className="text-gray-400 mt-2">七届世界冠军</p>
+      </div>
+
+      {/* Leclerc */}
+      <div className="mb-12 text-center">
+        <img
+          src="/leclerc.jpg"
+          alt="Charles Leclerc"
+          className="w-60 mx-auto rounded-2xl shadow-lg mb-4"
+        />
+        <p className="text-2xl">夏尔·勒克莱尔</p>
+        <p className="text-gray-400 mt-2">年轻的法拉利希望</p>
       </div>
     </div>
   );
