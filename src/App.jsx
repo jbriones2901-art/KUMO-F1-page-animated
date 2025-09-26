@@ -1,46 +1,80 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function KumoPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-pink-200 via-purple-200 to-indigo-200 flex flex-col items-center justify-center text-center p-6">
-      <h1 className="text-4xl md:text-5xl font-bold text-pink-700 animate-bounce mb-6">
-        给 Kumo 的一句话 💖
-      </h1>
+    <div className="min-h-screen bg-gradient-to-r from-purple-200 via-pink-200 to-red-200 flex flex-col items-center justify-center p-6 space-y-10">
+      <motion.h1
+        className="text-4xl font-bold text-gray-800"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+      >
+        ✨ 给 Kumo 的特别礼物 ✨
+      </motion.h1>
 
-      <div className="space-y-6 max-w-2xl">
-        <p className="text-xl text-gray-800">
-          🌸 你是天空中最亮的星，永远照亮我的世界。
-        </p>
-        <p className="text-xl text-gray-800">
-          🌸 遇见你，是我最美丽的意外。
-        </p>
-        <p className="text-xl text-gray-800">
-          🌸 你的笑容比阳光还要温暖。
-        </p>
-        <p className="text-xl text-gray-800">
-          🌸 无论未来怎样，我都希望你幸福快乐。
-        </p>
+      {/* Frases emotivas */}
+      <div className="grid md:grid-cols-2 gap-6 w-full max-w-5xl">
+        {[
+          { cn: "你是我眼中的光。", es: "Eres la luz en mis ojos.", color: "text-pink-600" },
+          { cn: "因为有你，世界更美丽。", es: "El mundo es más hermoso porque existes.", color: "text-red-500" },
+          { cn: "云朵般的温柔属于你。", es: "La ternura de las nubes te pertenece.", color: "text-purple-600" },
+          { cn: "遇见你是最美的意外。", es: "Encontrarte fue el accidente más hermoso.", color: "text-blue-600" },
+        ].map((item, index) => (
+          <motion.div
+            key={index}
+            className="bg-white/70 p-6 rounded-2xl shadow-lg text-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <p className={`text-xl font-semibold ${item.color}`}>{item.cn}</p>
+            <p className="text-sm text-gray-600">{item.es}</p>
+          </motion.div>
+        ))}
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-4 bg-white rounded-2xl shadow-lg hover:scale-105 transform transition">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/2/29/Charles_Leclerc_2019.jpg"
-            alt="Leclerc"
-            className="rounded-xl w-full h-64 object-cover"
-          />
-          <p className="mt-4 font-semibold text-gray-700">Charles Leclerc</p>
-        </div>
+      {/* Galería de pilotos */}
+      <motion.h2
+        className="text-3xl font-bold text-gray-700 mt-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        🏎️ Tus pilotos favoritos 🏎️
+      </motion.h2>
 
-        <div className="p-4 bg-white rounded-2xl shadow-lg hover:scale-105 transform transition">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Lewis_Hamilton_2016_Malaysia_2.jpg"
-            alt="Hamilton"
-            className="rounded-xl w-full h-64 object-cover"
-          />
-          <p className="mt-4 font-semibold text-gray-700">Lewis Hamilton</p>
-        </div>
+      <div className="grid md:grid-cols-2 gap-10 mt-6">
+        {[
+          {
+            name: "Charles Leclerc",
+            img: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Charles_Leclerc_2022.jpg",
+          },
+          {
+            name: "Lewis Hamilton",
+            img: "https://upload.wikimedia.org/wikipedia/commons/1/19/Lewis_Hamilton_2021.jpg",
+          },
+        ].map((pilot, index) => (
+          <motion.div
+            key={pilot.name}
+            className="text-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: index * 0.3 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <img
+              src={pilot.img}
+              alt={pilot.name}
+              className="rounded-2xl shadow-lg mx-auto"
+            />
+            <p className="mt-4 text-lg font-semibold text-gray-800">{pilot.name}</p>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
 }
+
