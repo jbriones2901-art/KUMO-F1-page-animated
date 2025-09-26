@@ -3,7 +3,7 @@ export default function App() {
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold mb-8">致Kumo的真挚话语</h1>
 
-      {/* Frases emotivas en chino */}
+      {/* Frases en chino */}
       <div className="mb-12 text-center">
         <p className="text-xl mb-2">你的微笑比阳光还要温暖。</p>
         <p className="text-xl mb-2">认识你是我生命中最美丽的意外。</p>
@@ -14,7 +14,7 @@ export default function App() {
       {/* Hamilton */}
       <div className="mb-12 text-center">
         <img
-          src="/hamilton.jpg"
+          src="/hamilton.jpg"   // ✅ busca en public/hamilton.jpg
           alt="Lewis Hamilton"
           className="w-60 mx-auto rounded-2xl shadow-lg mb-4"
         />
@@ -25,7 +25,7 @@ export default function App() {
       {/* Leclerc */}
       <div className="mb-12 text-center">
         <img
-          src="/leclerc.jpg"
+          src="/leclerc.jpg"   // ✅ busca en public/leclerc.jpg
           alt="Charles Leclerc"
           className="w-60 mx-auto rounded-2xl shadow-lg mb-4"
         />
