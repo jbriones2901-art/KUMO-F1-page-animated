@@ -1,48 +1,37 @@
-import { useRef } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-export default function App() {
-  const f1Sound = useRef(null);
-  const song = useRef(null);
+const frases = [
+  "你是我心中最美的星辰 ✨",
+  "遇见你是我最美的奇迹 💫",
+  "无论未来多远，我都愿与你同行 🚀",
+  "你的笑容比阳光还温暖 ☀️",
+  "你是我生命中最珍贵的礼物 🎁",
+  "和你在一起，世界变得更加美好 🌸"
+];
 
-  const playF1 = () => {
-    f1Sound.current.play();
-  };
-
-  const playSong = () => {
-    song.current.play();
-  };
-
+export default function KumoPage() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
-      <h1 className="text-4xl font-bold mb-8">致Kumo的真挚话语</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 p-6">
+      <h1 className="text-5xl font-bold text-purple-900 mb-10 drop-shadow-lg">
+        致Kumo ❤️
+      </h1>
 
-      {/* 句子 */}
-      <div className="mb-12 text-center">
-        <p className="text-xl mb-2">你的微笑比阳光还要温暖。</p>
-        <p className="text-xl mb-2">认识你是我生命中最美丽的意外。</p>
-        <p className="text-xl mb-2">愿你的人生充满光明与幸福。</p>
-        <p className="text-xl">你是独一无二的存在。</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+        {frases.map((frase, i) => (
+          <motion.div
+            key={i}
+            className="bg-white/80 rounded-2xl p-6 shadow-lg text-center text-xl font-semibold text-gray-800"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: i * 0.3 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            {frase}
+          </motion.div>
+        ))}
       </div>
-
-      {/* 按钮播放声音 */}
-      <div className="space-x-6 mt-10">
-        <button
-          onClick={playF1}
-          className="px-6 py-3 bg-red-600 rounded-xl shadow-lg hover:bg-red-700 transition"
-        >
-          播放F1音效
-        </button>
-        <button
-          onClick={playSong}
-          className="px-6 py-3 bg-purple-600 rounded-xl shadow-lg hover:bg-purple-700 transition"
-        >
-          播放歌曲
-        </button>
-      </div>
-
-      {/* 音频标签 */}
-      <audio ref={f1Sound} src="/audio/f1.mp3" preload="auto" />
-      <audio ref={song} src="/audio/mary.mp3" preload="auto" />
     </div>
   );
 }
+
