@@ -14,8 +14,7 @@ export default function App() {
       {/* Hamilton */}
       <div className="mb-12 text-center">
         <img
-          src="/
-          images/hamilton.jpg"   
+          src="/img/hamilton.jpg"
           alt="Lewis Hamilton"
           className="w-60 mx-auto rounded-2xl shadow-lg mb-4"
         />
@@ -26,7 +25,7 @@ export default function App() {
       {/* Leclerc */}
       <div className="mb-12 text-center">
         <img
-          src="images/leclerc.jpg"   
+          src="/img/leclerc.jpg"
           alt="Charles Leclerc"
           className="w-60 mx-auto rounded-2xl shadow-lg mb-4"
         />
